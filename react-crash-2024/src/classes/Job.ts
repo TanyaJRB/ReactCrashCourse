@@ -5,5 +5,13 @@ export type Job = {
     description: string;
     salary: string;
     location: string;
-    company: object;
+    company: JobCompany;
 }
+
+export type JobCompany = {
+    name: string;
+    description: string;
+    contactEmail: string;
+    contactPhone: string;
+}
+

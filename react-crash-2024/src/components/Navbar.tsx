@@ -37,7 +37,7 @@ const navbar = () => {
                 >Jobs
               </NavLink>
               <NavLink
-                to="/add-job"
+                to="/jobs/add-job"
                 className={({ isActive }: { isActive: boolean }) => activeClass({ isActive })}
                 >Add Job
               </NavLink>
