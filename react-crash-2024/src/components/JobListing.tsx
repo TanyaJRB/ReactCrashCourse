@@ -1,17 +1,7 @@
 import { useState } from "react"
 import { FaMapMarker } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-
-
-interface Job {
-    id: number | string
-    type: string
-    title: string
-    description: string
-    salary: string
-    location: string
-    company: object
-}
+import { Job } from "../classes/Job"
 
 interface JobListingProps {
     job: Job;
