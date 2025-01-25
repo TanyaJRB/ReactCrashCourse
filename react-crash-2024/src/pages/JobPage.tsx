@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 interface JobPageProps {
   deleteJob: (id: string | number) => Promise<void>;
@@ -16,6 +17,7 @@ const JobPage = ({ deleteJob }: JobPageProps) => {
       if (!confirm) return;
       deleteJob(id);
       navigate('/jobs');
+      toast.success('Job deleted successfully');
     }
 
     return (

@@ -2,6 +2,7 @@ import { Form } from "react-router-dom"
 import { useState } from "react"
 import { Job } from "../classes/Job"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify";
 
 interface AddJobPageProps {
   addJobSubmit:(job: Job) => Promise<void>;
@@ -30,7 +31,7 @@ const AddJobPage = ({ addJobSubmit }: AddJobPageProps) => {
       e.preventDefault();
       await addJobSubmit(job);
       navigate("/jobs");
-
+      toast.success('Job added successfully');
     }
 
     return (
