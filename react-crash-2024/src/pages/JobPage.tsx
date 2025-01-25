@@ -2,9 +2,21 @@ import { Job } from "../classes/Job";
 import { useLoaderData } from "react-router-dom"; 
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const JobPage = () => {
+interface JobPageProps {
+  deleteJob: (id: string | number) => Promise<void>;
+}
+const JobPage = ({ deleteJob }: JobPageProps) => {
     const job = useLoaderData<Job>();
+    const navigate = useNavigate();
+
+    async function onDeleteClick(id: string | number) {
+      const confirm = window.confirm('Are you sure you want to delete this job?');
+      if (!confirm) return;
+      deleteJob(id);
+      navigate('/jobs');
+    }
 
     return (
     <>
@@ -87,6 +99,7 @@ const JobPage = () => {
               >
               <button
                 className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                onClick={() => onDeleteClick(job.id)}
               >
                 Delete Job
               </button>
